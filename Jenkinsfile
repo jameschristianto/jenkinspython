@@ -13,7 +13,7 @@ node {
         }
     }
     stage('Deploy') {
-        input message: 'Lanjutkan ke tahap Deploy?'
+        input message: 'Lanjut ke tahap Deploy?'
         checkout scm
         sh 'docker run --rm -v /var/jenkins_home/workspace/python-app/sources:/src cdrx/pyinstaller-linux:python2 \'pyinstaller -F add2vals.py\''
         archiveArtifacts artifacts: 'sources/add2vals.py', followSymlinks: false
